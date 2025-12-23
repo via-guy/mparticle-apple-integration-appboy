@@ -355,10 +355,9 @@ static NSSet<BRZTrackingProperty*> *brazeTrackingPropertyAllowList;
     //    the launch notification which would otherwise trigger start().
     if (self->appboyInstance) {
         NSLog(@"mParticle -> Warning: Braze SDK initialized outside of mParticle kit, this will mean Braze settings within the mParticle dashboard such as API key, endpoint URL, flush interval and others will not be respected.");
-        [self start];
-    } else {
-        _started = NO;
     }
+
+    [self start];
     
     execStatus = [[MPKitExecStatus alloc] initWithSDKCode:[[self class] kitCode] returnCode:MPKitReturnCodeSuccess];
     return execStatus;
